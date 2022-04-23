@@ -1,0 +1,8 @@
+version check
+
+tsc -v
+
+tsc Test.ts
+
+node Test.js
+
