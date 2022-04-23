@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ES6</h1>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <b>map</b>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    <p id="demo10"></p>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+    <p id="demo13"></p>
+    <p id="demo14"></p>
+    <p id="demo15"></p>
+    <p id="demo16"></p>
+    <p id="demo17"></p>
+    <p id="demo18"></p>
+    <p id="demo19"></p>
+    <p id="demo20"></p>
+    <p id="demo21"></p>
+    <p id="demo22"></p>
+    <p id="demo23"></p>
+    <p id="demo24"></p>
+    <p id="demo25"></p>
+    <p id="demo26"></p>
+    <p id="demo27"></p>
+    <p id="demo28"></p>
+    <p id="demo29"></p>
+    <p id="demo30"></p>
+    <p id="demo31"></p>
+    <p id="demo32"></p>
+    <p id="demo33"></p>
+    <p id="demo34"></p>
+    <p id="demo35"></p>
+    <p id="demo36"></p>
+
+
+    <script>
+        // let and const keyword
+        let x=10;
+        const y=2;
+        document.write("constant value : ",y);
+        {
+            let x=3;
+        }
+        document.getElementById("demo1").innerHTML=x;
+        // arrow functions
+        const product=(a,b)=>a*b;
+        document.getElementById("demo2").innerHTML=product(2,8);
+        // for of 
+        const days=["monday","tuesday","wednesday"];
+        let day="";
+        for(let x of days){
+               day+= x +"<br>";
+        }
+
+        document.getElementById("demo3").innerHTML=day;
+
+        let userName="NIDHIJAIN";
+        let charc="";
+        for(let x of userName){
+            charc+=x+""+"<br>";
+        }
+
+        document.getElementById("demo4").innerHTML=charc;
+        // for in
+        const personInfo={
+            fname:'nidhi',
+            lname:'jain'
+        }
+        let personData="";
+        for(let x in personInfo){
+            personData+=personInfo[x]+"<br>";
+        }
+        document.getElementById("demo5").innerHTML=personData;
+        // map objects
+        const fruits=new Map();
+        fruits.set("apples",1);
+        fruits.set("bananas",2);
+        fruits.set("oranges",3);
+        document.getElementById("demo6").innerHTML=fruits.get("bananas");
+        document.write("<br>");
+        document.write("size ",fruits.size);
+        fruits.delete("bananas");
+        let fruit="";
+        fruits.forEach(function(value,key){
+            fruit+=key+'='+value+"<br>";
+        }
+        );
+        document.getElementById("demo7").innerHTML=fruit;
+        let total = 0;
+        for (const x of fruits.values()) {
+        total += x;
+        }
+
+        document.getElementById("demo8").innerHTML = total;
+        let text = "";
+        for (const x of fruits.entries()) {
+        text += x + "<br>";
+        }
+
+        document.getElementById("demo9").innerHTML = text;
+
+        let txt = "";
+        fruits.forEach (function(value, key) {
+        text += key + ' : ' + value + "<br>"
+        })
+
+        document.getElementById("demo10").innerHTML = text; 
+        // classes
+        class userData{
+            constructor(name,year){
+                this.name=name;
+                this.year=year;
+            }
+            age(){
+                let date=new Date();
+                return date.getFullYear()-this.year;
+            }
+        }
+
+        const user1=new userData("Nidhi",2000);
+        document.getElementById("demo11").innerHTML=user1.name + " " +user1.year +" "+user1.age();
+        // promises
+        function displayData(data) {
+               document.getElementById("demo12").innerHTML=data;     
+        }
+        let myPromise=new Promise(function(myResolve,myReject){
+            let x=0;
+            if(x==0){
+                myResolve("OK");
+            }else{
+                myReject("error");
+            }
+        });
+        myPromise.then(
+            function(value){
+                displayData(value);
+            },
+            function(error){
+                displayData(error);
+            }
+        )
+        // symbol
+        let id=Symbol('id');
+        
+        personInfo[id]=1234;
+        document.getElementById("demo13").innerHTML=personInfo[id];
+        // default parameter values
+        function calcSum(x,y=100) {
+            return x+y;
+        }
+        document.getElementById("demo14").innerHTML=calcSum(5);
+        // function rest parameter
+        function sum(...args) {
+            let sum=0;
+            for(let arg of args)
+            sum+=arg;
+            return sum;
+        }
+
+        let numbers=sum(4,5,6,7,100);
+        document.getElementById("demo15").innerHTML=numbers;
+        // string.includes()
+        let message="hello , welcome how are you";
+        document.getElementById("demo16").innerHTML=message.includes("hello");
+        // string.startsWith()
+        document.getElementById("demo17").innerHTML=message
+        .startsWith("hello");
+        // string.endsWith()
+        document.getElementById("demo18").innerHTML=message
+        .endsWith("u");
+        // Array.from()
+        document.getElementById("demo19").innerHTML=Array.from("HELLOTHERE");
+        // Array.keys()
+        const names=['nidhi','veena','reena'];
+        const keys=names.keys();
+        let keysName="";
+        for(let x of names){
+             keysName+=x+"<br>";
+        }
+        document.getElementById("demo20").innerHTML=keysName;
+        // Array.find()
+        const squares=[4,25,36,49];
+        let findNum=squares.find(numFun);
+        document.getElementById("demo21").innerHTML=findNum;
+        function numFun(value,index,array){
+            return value>30;
+        }
+        // Array.findIndex()
+        let findNumindex=squares.findIndex(numFun);
+        document.getElementById("demo22").innerHTML=findNumindex;
+        // New Math Methods
+        document.getElementById("demo23").innerHTML=Math.trunc(4.9);
+
+        document.getElementById("demo24").innerHTML=Math.sign(-4.9);
+
+        document.getElementById("demo25").innerHTML=Math.cbrt(125);
+
+        document.getElementById("demo26").innerHTML=Math.log2(2);
+
+        document.getElementById("demo27").innerHTML=Math.log10(10);
+        // new number properties
+        let epilsonNum=Number.EPSILON;
+        document.getElementById("demo28").innerHTML=epilsonNum;
+        let minSafeint=Number.MIN_SAFE_INTEGER;
+        document.getElementById("demo29").innerHTML=minSafeint;
+        let maxSafeint=Number.MAX_SAFE_INTEGER;
+        document.getElementById("demo30").innerHTML=maxSafeint;
+        // new number methods
+        let numIsint=document.getElementById("demo31").innerHTML=Number.isInteger(10);
+        let numIsSafeint=document.getElementById("demo32").innerHTML=Number.isSafeInteger(10);
+        // new global methods
+        let numIsinfinite=document.getElementById("demo33").innerHTML=isFinite(10/0);
+        let numIsfinite=document.getElementById("demo34").innerHTML=isFinite(10/1);
+        let numIsNaN=document.getElementById("demo35").innerHTML=isNaN("nidhi");
+        // object entries
+        const jsFrameworks=['react','vue','angular'];
+        const f=jsFrameworks.entries();
+        for(let x of f){
+            document.getElementById("demo36").innerHTML+= x +"<br>";
+        }
+        
+    </script>
+</body>
+</html>

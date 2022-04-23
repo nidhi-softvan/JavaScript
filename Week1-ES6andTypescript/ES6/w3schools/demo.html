@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="demo1"></h1>
+    <h2 id="demo2"></h2>
+    <script src="person.js" type="module">
+        'use strict';
+    
+        import {pname,pday} from "../person.js";
+        console.log(pname,pday)
+        let text=pname + pday ;
+        document.getElementById("demo1").innerHTML=text;
+         
+    </script>
+</body>
+</html>
