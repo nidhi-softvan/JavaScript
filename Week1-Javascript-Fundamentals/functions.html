@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let userName='nidhi';
+        function showMessage() {
+            userName='NIDHI';
+            let message="Hello,I'm local variable inside function username "+userName;
+            
+            alert(message);
+        }
+        alert(userName);
+        showMessage();
+        alert(userName);
+
+        function getData(from,text="no text given") {
+            alert(from + ' : ' +text);
+        }
+        getData('location','ahmedabad');
+        getData(userName,'hello');
+        getData(userName);
+        function getUser(from,text=showUser()) {
+            alert(from + ' : ' +text);
+        }
+        function showUser(){
+            return prompt('what"s your name');
+        }
+        getUser('name');
+        function showDetails(data){
+                 data=data||showUser();
+                 console.log(data);
+        }
+
+        showDetails();
+    </script>
+</body>
+</html>

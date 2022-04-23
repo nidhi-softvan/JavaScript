@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sayHi=function(){
+            alert('hi');
+        }
+        sayHi();
+        let greet=sayHi;
+        greet();
+
+        function  ask(question,yes,no) {
+          if(confirm(question)) yes();
+          else no();  
+        }
+
+        function showOk(){
+            alert('you agreed');
+        }
+
+        function showCancel(){
+            alert('you canceled execution');
+        }
+
+        ask("do you agree ?",showOk,showCancel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Specials</h1>
+
+    <script>
+        'use strict';
+        const user='nidhi';
+        console.log(typeof(null));
+        let userName=prompt('what is your name ?','Nidhi');
+        console.log("username",userName);
+        console.log(typeof(userName));
+        let locationAccess=confirm("Do you want to share your location ?");
+        alert("username" +" "+ userName +" "+ "location access" +" "+locationAccess);
+        let year=prompt('enter current year ');
+        if(locationAccess){
+            switch(year){
+                case '2022':
+                console.log('hello',userName)
+                break;
+                default:
+                console.log('enter year first');
+            }
+        }
+
+        function getsum(a,b){
+            let result=a+b;
+            return result;
+        }
+
+        let numberSum=getsum(2,3);
+        console.log(numberSum)
+
+        let getMultiple=function(a,b){
+            let result=a*b;
+            return result;
+        }
+
+        let numberProduct=getMultiple(12,23);
+        console.log(numberProduct);
+
+        let sayHi=()=>alert("hello ,have a great day");
+        let greet=sayHi();
+
+        greet;
+
+        let square=n=>n**2;
+        let num=square(3);
+        console.log(num);
+
+    </script>
+</body>
+</html>
