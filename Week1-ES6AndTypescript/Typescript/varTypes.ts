@@ -1,0 +1,14 @@
+let id:number=5;
+let firstname:string='nidhi';
+let hasDog:boolean=true;
+let unit:number;
+unit=5;
+let age:string|number;
+age=26;
+age='26';
+console.log(id);
+console.log("firstname :",firstname);
+console.log(unit);
+console.log(age);
+let lastname=new String('JAIN');
+console.log(lastname);

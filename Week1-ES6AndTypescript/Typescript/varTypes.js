@@ -1,0 +1,14 @@
+var id = 5;
+var firstname = 'nidhi';
+var hasDog = true;
+var unit;
+unit = 5;
+var age;
+age = 26;
+age = '26';
+console.log(id);
+console.log("firstname :", firstname);
+console.log(unit);
+console.log(age);
+var lastname = new String('JAIN');
+console.log(lastname);
