@@ -1,0 +1,21 @@
+<h1>Hello world</h1>
+
+{{projectName}}
+<h4>{{name}}</h4>
+<h4>{{getName()}}</h4>
+<h4>{{obj.name}}</h4>
+<h4>{{obj.age}}</h4>
+<h4>{{arrayTasks}}</h4>
+<h4>{{arrayTasks[1]}}</h4>
+<h4>{{arrayTasks.length}}</h4>
+<h4>{{10+20}}</h4>
+<h4>{{a+b}}</h4>
+<h4>{{siteUrl}}</h4>
+<app-user-list></app-user-list>
+<app-login></app-login>
+<button (click)="greeting('nidhi')">Show name</button>
+<button (click)="clickEvent('click event')">Click me</button>
+<br/>
+<input type="text" #box (keyup.enter)="clickEvent(box.value)"/>
+
+
