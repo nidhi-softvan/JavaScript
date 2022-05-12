@@ -1,0 +1,24 @@
+<h2>Property binding</h2>
+<input type="text" name="" id="" value={{name}} disabled={{disable}}>
+<br /><br />
+<input type="text" name="" [value]=name [disabled]=disable id="">
+
+
+
+<h3 *ngIf="show; then ifBlock else elsepart"></h3>
+<ng-template #ifBlock>
+  <h3>if</h3>
+</ng-template>
+<ng-template #elsepart>
+  <h3>else</h3> 
+</ng-template>
+
+<ng-template [ngIf]="color==='red'">
+  <h2 style="color: red;">red color</h2>
+</ng-template>
+<ng-template [ngIf]="color==='blue'">
+  <h2 style="color: blue;">blue color</h2>
+</ng-template>
+<ng-template [ngIf]="color==='brown'">
+  <h2 style="color: brown;">blue color</h2>
+</ng-template>
