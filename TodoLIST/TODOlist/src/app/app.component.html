@@ -1,0 +1,32 @@
+<h1>Hello {{title}}</h1>
+<h1>
+  todo list in angular
+</h1>
+<div [ngSwitch]="day">
+      <h1 *ngSwitchCase="'friday'" style="font-style:italic;">friday</h1>
+      <h1 *ngSwitchCase="'thursday'" style="color: darkblue;">thursday</h1>
+      <h1 *ngSwitchCase="'wednesday'" style="color: rgb(147, 82, 252);">wednesday</h1>
+      <h1 *ngSwitchCase="'monday'" style="background-color: bisque;">monday</h1>
+      <h1 *ngSwitchCase="'tuesday'" style="background-color: darkgrey;">tuesday</h1>
+      <h1 *ngSwitchDefault="''">sunday</h1>
+      <h1 style="font-weight: 200;">tasks</h1>
+      <h3 *ngFor="let item of tasks">task is : {{item}}</h3>
+      <h1 style="font-weight: 200;">task details</h1>
+      <h4 *ngFor="let taskDetail of taskDetails">{{taskDetail.taskname}} : {{taskDetail.taskDescription}} </h4>
+      <h2>checklist with due date</h2>
+      <ul *ngFor="let detail of taskDetails">
+        <li>{{detail.taskname}}</li>
+        <li>DUE DATE : {{detail.dueDate}}</li>
+        <!-- <li>Checklist : {{detail.checkList}}</li> -->
+        <h3>checklist</h3>
+       
+        <ul *ngFor="let check of detail.checkList">
+        
+         
+          <li [style.color]="color" [style.textDecoration]="textDec">{{check}}  </li>
+          
+          </ul>
+      </ul>
+      <span>Tasks completed</span><br />
+      <button (click)="doneTask()" >DONE</button><br/><br />
+</div>

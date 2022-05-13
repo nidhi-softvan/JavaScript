@@ -1,0 +1,13 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(247, 243, 236);
+}
+h1{
+    background-color: rgb(196, 204, 252);
+    color: darkblue;
+}
+
+h2{
+    text-decoration: solid;
+
+}
