@@ -1,0 +1,24 @@
+<div>
+  <h1>ANGULAR PIPES</h1>
+  <h2>lowercase and uppercase pipes</h2>
+  <p>{{convertText|lowercase}}</p>
+
+  <p>{{convertText|uppercase}}</p>
+</div>
+<div>
+  <h2>Decimal pipes</h2>
+  <p>{{num1|number}}</p>
+  <p>{{num2|number}}</p>
+  <h2>Percent pipes</h2>
+  <p>{{num1|percent:'2.5'}}</p>
+  <p>{{num2|percent}}</p>
+  <h2>Date pipe</h2>
+   <p>My birthday is {{birthday | date}}</p>
+   <h2>Keyvalue pipe</h2>
+   <ul>
+     <li *ngFor="let item of data|keyvalue">
+         {{item.key}}-->{{item.value}}
+     </li>
+   </ul>
+
+</div>
