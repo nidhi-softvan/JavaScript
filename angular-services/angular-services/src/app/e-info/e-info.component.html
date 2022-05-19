@@ -1,0 +1,36 @@
+<h3>e-info</h3>
+<form #frm="ngForm" (ngSubmit)="updateInfo(frm)">
+  <div>
+    <div>
+      <input type="text" name="location" value="" ngModel>
+      <button type="butt
+      " name="button">Add info</button>
+
+    </div>
+  </div>
+</form>
+<img src="./assets/e.jpeg"/>
+<br>
+<button name="button " type="button" (click)="getInfoFromService1()">employee 1</button>
+
+<ul class="list-group" >
+  <li *ngFor="let info of infoReceived1" class="list-group-info">
+  {{info}}
+  </li>
+</ul>
+
+<button name="button " type="button" (click)="getInfoFromService2()">employee 2</button>
+
+<ul class="list-group" >
+  <li *ngFor="let info of infoReceived2" class="list-group-info">
+  {{info}}
+  </li>
+</ul>
+
+<button name="button " type="button" (click)="getInfoFromService3()">employee 3</button>
+
+<ul class="list-group" >
+  <li *ngFor="let info of infoReceived3" class="list-group-info">
+  {{info}}
+  </li>
+</ul>
