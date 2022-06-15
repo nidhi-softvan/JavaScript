@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+<body>
+  <p>
+  <mat-toolbar color="primary" class="app-header" style="padding: 30px;">
+
+  <span >Hello {{userName}}</span>
+  <button mat-raised-button color="" routerLink="Signin" routerLinkActive="active" (click)="logout()" matBadgeColor="primary" style="margin-left: 990px;">
+    Logout
+  </button>
+
+
+
+</mat-toolbar>
+</p>
+
+
+<mat-card>
+<div>
+
+
+
+  <div>
+    <mat-form-field class="example-full-width" appearance="fill">
+
+      <mat-label>Search</mat-label>
+      <input  matInput placeholder="search ticket" #input>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" style="margin-left: 920px; margin-bottom: 15px;" (click)="addTicketDialog()" >Add ticket</button>
+    
+
+  </div>
+
+</div>
+
+
+
+<div class="spinner-container" *ngIf="dataSource.loading$ | async">
+  <mat-progress-spinner mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+
+<div class="mat-elevation-z8">
+  <!-- <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar> -->
+  <table mat-table [dataSource]="dataSource" matSort matSortActive="createdon" matSortDirection="desc" #tbSort="matSort" (matSortChange)="announceSortChange($event)" matSortDisableClear>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef >Status </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-chip-list>
+        <mat-chip color="primary" selected="">{{row.resolved===false?'Active':'Resolved'}}</mat-chip>
+      </mat-chip-list>
+
+       </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ticketid">
+      <th mat-header-cell *matHeaderCellDef > Ticket id </th>
+      <td mat-cell *matCellDef="let row"> {{row.ticket_id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ticketdescription">
+      <th mat-header-cell *matHeaderCellDef > Ticket description </th>
+      <td mat-cell *matCellDef="let tickets"> {{tickets.ticket_description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdon">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Created on </th>
+      <td mat-cell *matCellDef="let tickets"> {{tickets.createdAt | date:'yyyy-MM-dd'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdby">
+      <th mat-header-cell *matHeaderCellDef > Created by </th>
+      <td mat-cell *matCellDef="let tickets"> {{tickets.createdBy.firstName+ " "+tickets.createdBy.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef > Action </th>
+      <td mat-cell *matCellDef="let tickets">
+        <button mat-raised-button (click)="editTicketDialog(tickets)"><mat-icon color="primary" >edit</mat-icon>
+        </button>
+        <button mat-raised-button (click)="resolveTic(tickets._id)"><mat-icon color="primary">check</mat-icon></button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator
+
+  [pageSize]="10"
+  [length]="dataSource.total"
+
+  (page)="pageEvent=$event ; onPaginationChange($event)"
+
+  aria-label="Select page"
+  >
+    <!-- (page)="pageEvent=$event ; onPaginationChange($event)" -->
+</mat-paginator>
+  <!-- [pageSizeOptions]="[5, 10, 15]"
+  [length]="totalRecords"
+  [pageSize]='5' -->
+  <!-- (page)="pageChanged($event)" -->
+
+</div>
+</mat-card>
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</body>
+</html>
+
+
+
+  <!-- <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input (keyup)="applySearch($event)" matInput placeholder="search ticket" value="">
+
+
+  </mat-form-field> -->
+

@@ -1,0 +1,57 @@
+
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px;">
+     <div class="col-md-6 offset-md-3">
+     <mat-card>
+    <h1 class="text-center">SIGN UP</h1>
+    <form class="text-center" [formGroup]="signupForm" (ngSubmit)="registerUser()" >
+
+         <p>
+         <mat-form-field appearance="outline"  class="form-control">
+           <mat-label>firstname</mat-label>
+           <input matInput placeholder="" required   formControlName="firstName">
+
+         </mat-form-field>
+         </p>
+         <p>
+          <mat-form-field appearance="outline"  class="form-control">
+            <mat-label>lastname</mat-label>
+            <input matInput placeholder="" required   formControlName="lastName">
+
+
+          </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline"  class="form-control">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="abc@example.com"  required   formControlName="email">
+              <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+            <mat-hint>enter valid email</mat-hint>
+
+            </mat-form-field>
+          </p>
+         <mat-form-field appearance="outline"  class="form-control">
+           <mat-label>password</mat-label>
+           <input matInput  required  type="password" formControlName="password">
+           <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+           </button> -->
+           <!-- <mat-hint>enter password</mat-hint> -->
+
+         </mat-form-field>
+           <div class="container text-center">
+                <button mat-raised-button color="primary" type="submit">
+                Sign up
+                </button>
+           </div>
+           <br>
+           <p>Already have an account
+            <a mat-flat  routerLink="/Signin">Log in</a>
+          </p>
+    </form>
+    </mat-card>
+    </div>
+    </div>
+  </div>
+</div>
